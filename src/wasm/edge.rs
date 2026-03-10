@@ -16,10 +16,7 @@ impl EdgeWrapper {
     /// Create an edge from source output port index to target input port index.
     #[wasm_bindgen(constructor)]
     pub fn new(source_port: usize, target_port: usize) -> EdgeWrapper {
-        EdgeWrapper(Edge {
-            source_port,
-            target_port,
-        })
+        EdgeWrapper(Edge { source_port, target_port })
     }
 
     /// Create from JSON (typed object from `toJson`).

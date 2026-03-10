@@ -30,10 +30,7 @@ impl nodety::Type for MyType {
         self == child
     }
 
-    fn key_type(
-        &self,
-        _fields: Option<&BTreeMap<String, ScopedTypeExpr<Self>>>,
-    ) -> ScopedTypeExpr<Self> {
+    fn key_type(&self, _fields: Option<&BTreeMap<String, ScopedTypeExpr<Self>>>) -> ScopedTypeExpr<Self> {
         match self {
             Self::Array => TypeExpr::Type(Self::Integer),
             _ => TypeExpr::Never,
@@ -50,10 +47,7 @@ impl nodety::Type for MyType {
                 if !matches!(index, TypeExpr::Type(Self::Integer)) {
                     return TypeExpr::Any;
                 }
-                fields
-                    .get("elements_type")
-                    .cloned()
-                    .unwrap_or(TypeExpr::Any)
+                fields.get("elements_type").cloned().unwrap_or(TypeExpr::Any)
             }
             _ => TypeExpr::Any,
         }

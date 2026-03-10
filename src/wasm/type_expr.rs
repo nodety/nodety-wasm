@@ -26,9 +26,7 @@ impl TypeExprWrapper {
     /// Parse a type expression from string notation (e.g. `"Integer"`, `"Array<String>"`).
     #[wasm_bindgen(static_method_of = TypeExprWrapper, js_name = fromString)]
     pub fn from_string(s: &str) -> Result<TypeExprWrapper, JsValue> {
-        NodetyTypeExpr::from_str(s)
-            .map(TypeExprWrapper)
-            .map_err(|e| JsValue::from_str(&e.to_string()))
+        NodetyTypeExpr::from_str(s).map(TypeExprWrapper).map_err(|e| JsValue::from_str(&e.to_string()))
     }
 
     /// Parse a type expression from string notation. Alias for `fromString`.

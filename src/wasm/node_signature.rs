@@ -22,9 +22,7 @@ impl NodeSignatureWrapper {
     /// Parse a node signature from string notation (e.g. `"<T>(T) -> (T)"`).
     #[wasm_bindgen(static_method_of = NodeSignatureWrapper, js_name = fromString)]
     pub fn from_string(s: &str) -> Result<NodeSignatureWrapper, JsValue> {
-        NodetyNodeSignature::from_str(s)
-            .map(NodeSignatureWrapper)
-            .map_err(|e| JsValue::from_str(&e.to_string()))
+        NodetyNodeSignature::from_str(s).map(NodeSignatureWrapper).map_err(|e| JsValue::from_str(&e.to_string()))
     }
 
     /// Create from JSON (typed object from `toJson`).

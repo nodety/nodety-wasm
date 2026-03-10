@@ -25,18 +25,12 @@ impl ScopeSnapshotWrapper {
     /// Create from JSON (typed object from `toJson`).
     #[wasm_bindgen(static_method_of = ScopeSnapshotWrapper, js_name = fromJson)]
     pub fn from_json(obj: ScopeSnapshotJson) -> ScopeSnapshotWrapper {
-        ScopeSnapshotWrapper {
-            parameters: obj.parameters,
-            inferred: obj.inferred,
-        }
+        ScopeSnapshotWrapper { parameters: obj.parameters, inferred: obj.inferred }
     }
 
     /// Serialize to a typed JSON object.
     #[wasm_bindgen(js_name = toJson)]
     pub fn to_json(&self) -> ScopeSnapshotJson {
-        ScopeSnapshotJson {
-            parameters: self.parameters.clone(),
-            inferred: self.inferred.clone(),
-        }
+        ScopeSnapshotJson { parameters: self.parameters.clone(), inferred: self.inferred.clone() }
     }
 }

@@ -28,10 +28,7 @@ impl ParsableType for MyType {
 
     fn parse_operator(input: &str) -> IResult<&str, Self::Operator> {
         // NoOperator: no custom operators, always fail
-        Err(nom::Err::Error(nom::error::Error::new(
-            input,
-            nom::error::ErrorKind::Tag,
-        )))
+        Err(nom::Err::Error(nom::error::Error::new(input, nom::error::ErrorKind::Tag)))
     }
 }
 
@@ -65,9 +62,7 @@ impl FormattableType for MyType {
             Self::String => write!(f, "String"),
             Self::Array => {
                 write!(f, "Array")?;
-                if let Some(elements_type) =
-                    parameters.as_ref().and_then(|p| p.get("elements_type"))
-                {
+                if let Some(elements_type) = parameters.as_ref().and_then(|p| p.get("elements_type")) {
                     write!(f, "<")?;
                     elements_type.format_type(f, false)?;
                     write!(f, ">")?;

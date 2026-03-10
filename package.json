@@ -1,0 +1,7 @@
+{
+    "name": "nodety-wasm",
+    "version": "0.1.0",
+    "scripts": {
+        "build": "wasm-pack build --target bundler --features wasm && node scripts/patch-dts.js"
+    }
+}

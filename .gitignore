@@ -1,0 +1,10 @@
+# Rust / Cargo
+/target/
+
+# wasm-pack output
+/pkg/
+
+# IDE
+.idea/
+.vscode/
+.cursor/

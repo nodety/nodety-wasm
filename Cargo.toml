@@ -1,0 +1,19 @@
+[package]
+name = "nodety-wasm"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = []
+wasm = ["dep:wasm-bindgen", "dep:tsify", "dep:serde"]
+
+[dependencies]
+nodety = { path = "C:/dev/nodety", features = ["parser", "serde"] }
+petgraph = "0.8"
+serde = { version = "1.0", optional = true }
+wasm-bindgen = { version = "0.2", optional = true }
+tsify = { version = "0.5", optional = true }
+nom = "8.0"
